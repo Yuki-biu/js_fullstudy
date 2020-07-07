@@ -1,0 +1,160 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+}
+.container{
+    background-color: rgb(125, 125, 224);
+    width: 380px;
+    height: 475px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    overflow: hidden;
+}
+.secContainer{
+    width: 320px;
+    height: 400px;
+    background-color: rgb(107, 107, 255);
+    position: absolute;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+}
+/* 栅栏 */
+.behind{
+    background-color: rgb(131, 64, 64);
+    height: 135px;
+    width: 20px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: -5px;
+    left: 5px;
+}
+.before{
+    background-color: rgb(138, 94, 94);
+    height: 100px;
+    width: 20px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: -5px;
+    left: 5px;
+}
+.block-r{
+    background-color: rgb(138, 94, 94);
+    height: 20px;
+    width: 35px;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 75px;
+    left: 5px;
+}
+
+/* 垃圾桶 */
+.main{
+    background-color: chocolate;
+    height: 140px;
+    width: 80px;
+    position: absolute;
+    right: 20px;
+    bottom: -10px;
+    border-radius: 15px;
+}
+.part{
+    width: 60px;
+    height: 25px;
+    position: absolute;
+    top: 30px;
+    left: 10px;
+    background-color: coral;
+    border-radius: 8px;
+}
+.part2{
+    top: 20px;
+    background-color: #000;
+}
+
+/* 树干 */
+.brown{
+    position: absolute;
+    background: brown;
+    box-shadow: inset -20px 0 6px 5px maroon;
+}
+.brown-r{
+    width: 15px;
+    height: 80px;
+    top: 220px;
+    left: 180px;
+    transform: rotate(25deg);
+}
+.brown-m{
+    width: 40px;
+    height: 180px;
+    bottom: -5px;
+    left: 140px;
+    transform: rotate(-5deg)
+}
+.brown-l{
+    width: 15px;
+    height: 80px;
+    top: 220px;
+    left: 120px;
+    transform: rotate(-25deg);
+    box-shadow: inset 5px 2px 6px 5px maroon;
+}
+
+/* 树丛 */
+.green{
+    position: absolute;
+    bottom: 0;
+    width: 350px;
+    height: 60px;
+    background-color: green;
+}
+/* 树叶 */
+.ball{
+    border-radius: 50%;
+    background-color: lightgreen;
+    box-shadow: inset -10px 0 24px 0 limegreen ;
+    position: absolute;
+}
+.ball-big{
+    width: 200px;
+    height: 200px;
+    top: 50px;
+    left: 75px;
+}
+.ball-normal{
+    width: 175px;
+    height: 175px;
+    top: 25px;
+    left: 70px;
+    transform: rotate(-90deg);
+}
+.ball-small{
+    width: 150px;
+    height: 150px;
+    top: 100px;
+    left: 30px;
+    transform: rotate(135deg);
+}
+
+.bottom{
+    height: 50px;
+    width: 375px;
+    position: absolute;
+    bottom: 1px;
+    left: -25px;
+    border-top: 25px solid limegreen;
+    border-radius: 25px;
+}
+.bottom2{
+    height: 50px;
+    width: 375px;
+    position: absolute;
+    bottom: 26px;
+    left: -25px;
+    border-bottom: 25px solid lime;
+    border-radius: 25px;
+}
