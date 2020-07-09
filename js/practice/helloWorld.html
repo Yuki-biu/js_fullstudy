@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HelloWorld</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #myCanvas {
+            width: 400px;
+            height: 200px;
+            border: 1px solid #000;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="myCanvas"></canvas>
+
+    <script>
+        var cvn = document.getElementById("myCanvas")
+        var ctx = cvn.getContext("2d")
+
+        var my_gradient = ctx.createLinearGradient(0, 0, 400, 200);
+        my_gradient.addColorStop(0, "black");
+        my_gradient.addColorStop(0.2, "red");
+        my_gradient.addColorStop(0.4, "black");
+        my_gradient.addColorStop(0.6, "red");
+        my_gradient.addColorStop(0.8, "black");
+        my_gradient.addColorStop(1, "red");
+        ctx.fillStyle = my_gradient;
+        ctx.font = '40px Verdana'
+        // ctx.fillText("Hello World!", 30, 90)
+        ctx.fillText("Hello", 30, 90)
+        ctx.fillText("World!", 150, 90)
+        
+    </script>
+</body>
+
+</html>
