@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fly Bird</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <div id="wrapBg">
+        <div id="headTitle">    <!--开始标题-->
+            <img id="headBird" src="./img/bird0.png" alt="小鸟">
+        </div>
+        <button id="startBtn"></button> <!--开始按钮-->
+        <div id="grassLand1"></div> <!--草地1-->
+        <div id="grassLand2"></div> <!--草地2-->
+    </div>
+
+    <script src="./js/bird.js"></script>
+    <script>
+        var jsWrapBg = document.getElementById('wrapBg')
+        var jsHeadTitle = document.getElementById('headTitle')
+        var jsHeadBird = document.getElementById('headBird')
+
+        var Y = 3
+        var index = 0
+        var imgArr = ['img/bird0.png','img/bird1.png']
+        //利用帧动画的原理作出小鸟翅膀摆动的样子
+        var headWaveTimer = setInterval(headWave,200)   //设置标题上下摆动的定时器
+        function headWave() {
+            Y *= -1
+            jsHeadTitle.style.top = jsHeadTitle.offsetTop + Y + 'px'
+            jsHeadBird.src = imgArr[index++]
+            if (index == 2) index = 0
+        }
+
+        var jsGrassLand1 = document.getElementById('grassLand1')
+        var jsGrassLand2 = document.getElementById('grassLand2')
+        var landTimer = setInterval(landRun, 30)    //让草地动起来
+        function landRun() {
+            if( jsGrassLand1.offsetLeft <= -343 ){
+                jsGrassLand1.style.left = 343 + 'px'
+            }
+            if( jsGrassLand2.offsetLeft <= -343 ){
+                jsGrassLand2.style.left = 343 + 'px'
+            }
+            jsGrassLand1.style.left = jsGrassLand1.offsetLeft - 3 + 'px'
+            jsGrassLand2.style.left = jsGrassLand2.offsetLeft - 3 + 'px'
+        }
+
+        // start按钮点击事件
+        var jsStartBtn = document.getElementById('startBtn')
+        jsStartBtn.onclick = function() {
+            jsHeadTitle.style.display = 'none'  //隐藏标题
+            jsStartBtn.style.display = 'none'   //隐藏btn
+            clearInterval(headWaveTimer)    //关闭标题振动的定时器
+            // 把小鸟插入到界面中
+            bird.showBird(jsWrapBg)
+        }
+
+    </script>
+</body>
+</html>
