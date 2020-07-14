@@ -56,6 +56,11 @@
             clearInterval(headWaveTimer)    //关闭标题振动的定时器
             // 把小鸟插入到界面中
             bird.showBird(jsWrapBg)
+            bird.flyBird()
+            jsWrapBg.onclick = function() {
+                bird.fallSpeed = -8
+            }
+            bird.wingWave()
         }
 
     </script>
