@@ -17,6 +17,8 @@
     </div>
 
     <script src="./js/bird.js"></script>
+    <script src="./js/baseObj.js"></script>
+    <script src="./js/block.js"></script>
     <script>
         var jsWrapBg = document.getElementById('wrapBg')
         var jsHeadTitle = document.getElementById('headTitle')
@@ -57,10 +59,13 @@
             // 把小鸟插入到界面中
             bird.showBird(jsWrapBg)
             bird.flyBird()
+            bird.wingWave()
             jsWrapBg.onclick = function() {
                 bird.fallSpeed = -8
             }
-            bird.wingWave()
+            // 出现管道
+            var b = new Block() //实例化
+            b.createBlock()
         }
 
     </script>
