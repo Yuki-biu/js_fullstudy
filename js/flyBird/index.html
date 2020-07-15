@@ -23,6 +23,8 @@
         var jsWrapBg = document.getElementById('wrapBg')
         var jsHeadTitle = document.getElementById('headTitle')
         var jsHeadBird = document.getElementById('headBird')
+        var blockArr = []   //装管道
+        var blockDistance = baseObj.randomNum(140,260)  //管道间隔
 
         var Y = 3
         var index = 0
@@ -48,6 +50,30 @@
             }
             jsGrassLand1.style.left = jsGrassLand1.offsetLeft - 3 + 'px'
             jsGrassLand2.style.left = jsGrassLand2.offsetLeft - 3 + 'px'
+
+            // 管道移动
+            if (blockArr.length) {
+                for(var i = 0; i < blockArr.length; i++) {
+                    blockArr[i].moveBlock()
+                    var x = baseObj.rectangleCrashExamine(blockArr[i].downDivWrap, bird.div)
+                    var y = baseObj.rectangleCrashExamine(blockArr[i].upDivWrap, bird.div)
+                    var z = bird.div.offsetTop >= 390
+                    if ( x || y || z) {
+                        window.clearInterval(landTimer)
+                        jsWrapBg.onclick = null
+                        bird.fallSpeed = 0
+                    }
+                }
+                if(blockArr[blockArr.length - 1].downDivWrap.offsetLeft < (450 - blockDistance)) {
+                    var newBlock = new Block()
+                    newBlock.createBlock()
+                    blockArr.push(newBlock)
+                    blockDistance = baseObj.randomNum(140,260)
+                }
+                if(blockArr[0].downDivWrap.offsetLeft < -70) {  //将移动出屏幕的管道从blockArr中移除
+                    blockArr.shift()
+                }
+            }
         }
 
         // start按钮点击事件
@@ -66,6 +92,7 @@
             // 出现管道
             var b = new Block() //实例化
             b.createBlock()
+            blockArr.push(b)
         }
 
     </script>

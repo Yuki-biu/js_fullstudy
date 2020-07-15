@@ -22,10 +22,11 @@ var bird = {
         bird.flyTimer = setInterval(fly,50)
         function fly() {
             bird.div.style.top = bird.div.offsetTop + bird.fallSpeed++ + 'px'
-            if (bird.div.offsetTop >= 395){ //掉到地面时清除定时器
+            if (bird.div.offsetTop >= 390){ //掉到地面时清除定时器
                 bird.fallSpeed = 0
                 clearInterval(bird.flyTimer)
                 clearInterval(bird.wingTimer)
+                clearInterval(landTimer)
             }
             if (bird.div.offsetTop < 0){ //控制小鸟不飞出屏幕
                 bird.div.style.top = 0
