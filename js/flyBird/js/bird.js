@@ -6,7 +6,7 @@ var bird = {
     
     showBird: function(parentObj) {
         this.div.style.width = '40px'
-        this.div.style.height = '48px'
+        this.div.style.height = '28px'
         this.div.style.backgroundImage = 'url(img/bird0.png)'
         this.div.style.backgroundRepeat = 'no-repeat'
         this.div.style.position = 'absolute'
@@ -19,7 +19,7 @@ var bird = {
 
     fallSpeed: 0,   //小鸟下落的速度
     flyBird: function() {   //控制小鸟飞翔下落的函数
-        bird.flyTimer = setInterval(fly,50)
+        bird.flyTimer = setInterval(fly,60)
         function fly() {
             bird.div.style.top = bird.div.offsetTop + bird.fallSpeed++ + 'px'
             if (bird.div.offsetTop >= 390){ //掉到地面时清除定时器
