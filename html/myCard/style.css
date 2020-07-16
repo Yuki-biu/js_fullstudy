@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  font-size: 30px;
+}
+section {
+  margin-bottom: 0.667rem;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.card {
+  padding: 1rem;
+  background-color: #f5fafe;
+}
+.card-wrapper {
+  width: 100%;
+  font-size: 0;
+}
+.card-wrapper .user-info {
+  width: 100%;
+}
+.card-wrapper .user-info__pic {
+  width: 100%;
+}
+.card-wrapper .user-info__pic img {
+  width: 100%;
+}
+.card-wrapper .user-info__desc {
+  padding: 0.333rem 0.667rem;
+}
+.card-wrapper .user-info__desc .name {
+  font-size: 1rem;
+  color: #010101;
+  padding-bottom: 0.3rem;
+}
+.card-wrapper .user-info__desc .name .sex {
+  width: 0.67rem;
+  height: 0.6rem;
+  display: inline-block;
+  background-image: url("./img/sexw.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.card-wrapper .user-info__desc .tag {
+  font-size: 0.5rem;
+  padding-bottom: 0.3rem;
+}
+.card-wrapper .user-info__desc .tag p {
+  padding: 0.2rem 0.4rem;
+  display: inline-block;
+  color: #fff;
+  border-radius: 5px;
+}
+.card-wrapper .user-info__desc .detail {
+  font-size: 0.5rem;
+  color: #afafaf;
+}
+.card-wrapper .user-info__desc .detail p {
+  height: 0.8rem;
+  line-height: 0.8rem;
+  font-weight: normal;
+  padding-bottom: 0.15rem;
+  width: 40%;
+  float: left;
+}
+.card-wrapper .user-info__desc .detail p em {
+  width: 0.5rem;
+  height: 0.5rem;
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.history {
+  padding: 0.5rem 0.5rem;
+}
+.history div {
+  display: inline-block;
+}
+.history-pic img {
+  width: 1.5rem;
+  margin-right: 0.333rem;
+  border-radius: 50%;
+}
+.history-detail {
+  position: absolute;
+  font-size: 0.5rem;
+}
+.history-detail p {
+  height: 1.5rem;
+  line-height: 1.5rem;
+}
+.history-detail-icon {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  position: absolute;
+  right: -0.8rem;
+  top: 0.25rem;
+  background-image: url("./img/arrow_right.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
