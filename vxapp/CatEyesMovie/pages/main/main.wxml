@@ -7,13 +7,47 @@
                 <view class="downtips"></view>
             </view>
             <view class="header_bd">
-                <view class="header_bd-hot header_bd-btn">正在热映</view>
-                <view class="header_bd-waiting header_bd-btn">即将上映</view>
+                <view class="header_bd-hot header_bd-btn" bindtap="tabChangeHot" style="color:{{isLeft?'#ef4238':'#666'}}">正在热映</view>
+                <view class="header_bd-waiting header_bd-btn" bindtap="tabChangeWaiting" style="color:{{isLeft?'#666':'#ef4238'}}">即将上映</view>
+                <view class="bottomLine" style="left:{{isLeft?'73px':'143px'}}"></view>
             </view>
             <view class="header_ft">
                 <image src="../../images/search.png">
                     
                 </image>
+            </view>
+        </view>
+
+        <swiper indicator-dots="{{indicatorDots}}" indicator-active-color="#fff" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+            <!-- <swiper-item class="" item-id="">
+                <image class="slide-image" style="width: 100%;" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1594982007082&di=54c689fb2ef27d19a463ee6a01074b35&imgtype=0&src=http%3A%2F%2Fp0.ifengimg.com%2Fpmop%2F2018%2F0724%2F970AF64D5A0F26F9A969A3050783210856AABAD6_size102_w1080_h633.jpeg">
+                    
+                </image>
+            </swiper-item>
+            <swiper-item class="" item-id="">
+                <image class="slide-image" style="width: 100%;" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1594982007082&di=cd28354e8aeb90019fe142300da5f9d2&imgtype=0&src=http%3A%2F%2Fi2.wp.com%2Fimg.char.tw%2Fuploads%2F20180929213252_84.jpg%3Fresize%3D1280%2C720">
+                    
+                </image>
+            </swiper-item> -->
+            <swiper-item wx:for="{{imgUrls}}" wx:key="index">
+                <image class="slide-image" src="{{item}}" />
+            </swiper-item>
+        </swiper>
+
+        <view wx:for="{{movieList}}" key="{{index}}" >
+            <view class="flex item">
+                <view class="item_left">
+                    <image src="{{item.imgUrl}}" />
+                </view>
+                <view class="item_middle">
+                    <text class="movie_title">{{item.name}}</text>
+                    <text class="movie_actor">{{item.actor}}</text>
+                    <text class="movie_wantSee">{{item.wantSee}}人想看</text>
+                    <text class="movie_time">{{item.time}}上映</text>
+                </view>
+                <view class="item_right">
+                    按钮
+                </view>
             </view>
         </view>
     </scroll-view>

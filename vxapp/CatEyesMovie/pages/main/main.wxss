@@ -36,6 +36,7 @@
 .header_bd {
     flex: 1;
     text-align: center;
+    position: relative;
 }
 .header_bd-btn {
     width: 70px;
@@ -44,6 +45,14 @@
     line-height: 45px;
     font-weight: bold;
     color: #666666;
+}
+.bottomLine {
+    width: 56px;
+    height: 3px;
+    background-color: #ef4238;
+    position: absolute;
+    bottom: 0;
+    transition: 0.5s;
 }
 
 .header_ft {
@@ -61,7 +70,47 @@
     height: 23px;
 }
 
+.slide-image {
+    width: 100%;
+}
 
+.item {
+    padding: 10px;
+    background-color: #ffffff;
+    color: #787878;
+    border-top: 1px solid #eaeaea;
+    position: relative;
+    overflow: auto;
+}
+.item_left {
+    float: left;
+}
+.item_left image {
+    display: block;
+    width: 65px;
+    height: 95px;
+}
+.item_middle {
+    float: left;
+    width: 60%;
+    padding-left: 10px;
+    padding-top: 5px;
+}
+.item_middle .movie_name {
+    font-size: 18px;
+}
+.item_middle .movie_actor {
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+}
+.item_middle .movie_wantSee {
+    font-size: 12px;
+}
+.item_middle .movie_time {
+    font-size: 12px;
+    display: block;
+}
 
 
 
