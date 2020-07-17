@@ -1,0 +1,54 @@
+<!--index.wxml-->
+<!-- wxml -> html -->
+<view class="wrapper">
+    <view class="group">
+        <view class="group-bar">
+            <view class="group-title">7月15日</view>
+        </view>
+        <view class="group-content">
+            <view class="group-content-item">
+                <view class="group-content-item-desc">跟王宝强学英语</view>
+                <image class="group-content-item-img" src="https://puui.qpic.cn/qqvideo_ori/0/q0033kobh9p_228_128/0" mode="aspectFill">
+                    
+                </image>
+            </view>
+            <view class="group-content-item">
+                <view class="group-content-item-desc">跟王宝强学英语</view>
+                <image class="group-content-item-img" src="https://puui.qpic.cn/qqvideo_ori/0/q0033kobh9p_228_128/0" mode="aspectFill">
+                    
+                </image>
+            </view>
+            <view class="group-content-item">
+                <view class="group-content-item-desc">跟王宝强学英语</view>
+                <image class="group-content-item-img" src="https://puui.qpic.cn/qqvideo_ori/0/q0033kobh9p_228_128/0" mode="aspectFill">
+                    
+                </image>
+            </view>
+        </view>
+    </view>
+    <view class="group">
+        <view class="group-bar">
+            <view class="group-title">7月15日</view>
+        </view>
+        <view class="group-content">
+            <view class="group-content-item">
+                <view class="group-content-item-desc">跟王宝强学英语</view>
+                <image class="group-content-item-img" src="https://puui.qpic.cn/qqvideo_ori/0/q0033kobh9p_228_128/0" mode="aspectFill">
+                    
+                </image>
+            </view>
+            <view class="group-content-item">
+                <view class="group-content-item-desc">跟王宝强学英语</view>
+                <image class="group-content-item-img" src="https://puui.qpic.cn/qqvideo_ori/0/q0033kobh9p_228_128/0" mode="aspectFill">
+                    
+                </image>
+            </view>
+            <view class="group-content-item">
+                <view class="group-content-item-desc">跟王宝强学英语</view>
+                <image class="group-content-item-img" src="https://puui.qpic.cn/qqvideo_ori/0/q0033kobh9p_228_128/0" mode="aspectFill">
+                    
+                </image>
+            </view>
+        </view>
+    </view>
+</view>
