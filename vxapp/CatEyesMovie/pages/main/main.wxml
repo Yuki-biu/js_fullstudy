@@ -45,8 +45,8 @@
                     <text class="movie_wantSee">{{item.wantSee}}人想看</text>
                     <text class="movie_time">{{item.time}}上映</text>
                 </view>
-                <view class="item_right">
-                    按钮
+                <view class="item_right" style="background-color: {{item.isShow==1?'red':'blue'}}">
+                    {{item.isShow==1?"购票":"预售"}}
                 </view>
             </view>
         </view>
