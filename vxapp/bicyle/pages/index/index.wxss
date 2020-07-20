@@ -1,0 +1,102 @@
+/**index.wxss**/
+.header {
+  position: absolute;
+  width: 700rpx;
+  top: 25rpx;
+  left: 25rpx;
+  background-color: #fff;
+  border-radius: 15rpx;
+  text-align: center;
+}
+.header text {
+  color: #000;
+  font-size: 32rpx;
+  line-height: 3;
+  margin: 10rpx;
+}
+.header text:last-child {
+  color: orangered;
+}
+.header image {
+  position: absolute;
+  width: 32rpx;
+  height: 32rpx;
+  top: 34rpx;
+  right: 20rpx;
+}
+
+.search {
+  position: absolute;
+  width: 450rpx;
+  top: 40%;
+  left: 20%;
+  text-align: center;
+  line-height: 2;
+  background-color: #fff;
+  border-radius: 25rpx;
+}
+
+.currentLoc {
+  position: absolute;
+  width: 50rpx;
+  height: 60rpx;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.sideBar {
+  position: absolute;
+  width: 100rpx;
+  top: 30%;
+  right: 25rpx;
+  border-radius: 20rpx;
+  background-color: #fff;
+}
+.sideBar view {
+  width: 100%;
+  float: left;
+  padding: 25rpx 20rpx;
+}
+.sideBar view image {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.location {
+  position: absolute;
+  width: 100rpx;
+  height: 100rpx;
+  top: 55%;
+  right: 25rpx;
+  border-radius: 50%;
+  background-color: #fff;
+}
+.location image {
+  width: 80rpx;
+  height: 80rpx;
+  margin: 10rpx;
+}
+
+.footer {
+  position: absolute;
+  width: 700rpx;
+  bottom: 25rpx;
+  left: 25rpx;
+  background-color: #000;
+  border-radius: 15rpx;
+  text-align: center;
+}
+.footer image {
+  position: absolute;
+  width: 64rpx;
+  height: 64rpx;
+  top: 16rpx;
+  left: 30%;
+}
+.footer text {
+  color: #fff;
+  font-size: 32rpx;
+  line-height: 3;
+  margin: 10rpx;
+}

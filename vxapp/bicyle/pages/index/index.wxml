@@ -1,0 +1,36 @@
+<!--index.wxml-->
+<map id="map" longitude="115.836369" latitude="28.723404" scale="14"
+ markers="{{markers}}" show-location style="width: 100%; height: 100vh;"></map>
+
+ <cover-view class="header">
+   <text>骑出运营区域</text>
+   <text>助力自动关闭</text>
+   <image src="../../img/rightArrow.png"></image>
+ </cover-view>
+
+
+ <cover-view class="search">
+  <view>
+    <icon type="search" size="16" color="orangered"></icon>
+    <text>搜索目的地停车点</text>
+  </view>
+ </cover-view>
+ <cover-image class="currentLoc" src="../../img/pin.png"></cover-image>
+
+ <cover-view class="sideBar">
+   <view>
+     <image src="../../img/lighting.png"></image>
+   </view>
+   <view style="border-top: 2rpx solid #acacac;">
+    <image src="../../img/parking.png"></image>
+   </view>
+ </cover-view>
+
+ <cover-view class="location" >
+  <image src="../../img/loc.png"></image>
+</cover-view>
+
+<cover-view class="footer">
+  <image src="../../img/scan.png"></image>
+  <text>扫码用车</text>
+</cover-view>
