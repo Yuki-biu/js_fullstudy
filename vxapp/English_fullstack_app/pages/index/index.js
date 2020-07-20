@@ -13,21 +13,7 @@ Page({
     articleList: [
 
     ],
-    markers: [{
-      iconPath: "../../resources/lighting.png",
-      id: 0,
-      latitude: 28.723404,
-      longitude: 115.836369,
-      width: 35,
-      height: 35
-    },{
-      iconPath: "../../resources/lighting.png",
-      id: 1,
-      latitude: 28.724805,
-      longitude: 115.836870,
-      width: 35,
-      height: 35
-    }]
+    
   },
   //事件处理函数
   bindViewTap: function() {
