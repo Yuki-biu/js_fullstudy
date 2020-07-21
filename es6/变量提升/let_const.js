@@ -40,12 +40,28 @@ var obj = {}
 //     let tmp
 // }
 
-var a = 'a'
-var a = 'aa'
-console.log(a)
+// var a = 'a'
+// var a = 'aa'
+// console.log(a)
 
-let b = 'b'
-let b = 'bb'
-console.log(b) //let不允许重复声明变量
+// let b = 'b'
+// let b = 'bb'
+// console.log(b) 
+// let不允许重复声明变量
+
+//----------------------------------------
+// const num = 1234
+// num = 1000
+// console.log(num)
+// const声明的是常量
+
+if(true) {
+    console.log(age)
+    const age = 18
+}
+
+
+
+
 
 
