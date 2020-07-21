@@ -79,5 +79,6 @@
 // let {length: len} = 'hello'
 // console.log(len)    // 5
 
-
+let {toString: s} = true
+console.log(s === Boolean.prototype.toString)
 
