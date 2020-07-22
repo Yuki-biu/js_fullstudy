@@ -3,27 +3,29 @@
     <view>
         <view class="cart-box">
             <view class="cart-list" wx:for="{{carts}}" wx:key="index">
-                <icon class="cart-pro-select" type="success" size="23" color="red"></icon>
+                <icon wx:if="{{item.selected}}" bindtap="changeSelect" data-index="{{index}}" class="cart-pro-select" type="success" size="23" color="red"></icon>
+                <icon wx:else class="cart-pro-select" bindtap="changeSelect" data-index="{{index}}" type="success" size="23" color="gray"></icon>
                 
                 <navigator class="cart-pro-goods" url="pages/detail/detail">
                     <image class="cart-thumb" src="{{item.image}}" />
                 </navigator>
                 
                 <text class="cart-pro-name">{{item.title}}</text>
-                <text class="cart-pro-price">{{item.price}}</text>
+                <text class="cart-pro-price">￥ {{item.price}}</text>
 
                 <view class="cart-count-box">
-                    <text class="cart-count-down">-</text>
+                    <text bindtap="downCount" data-index="{{index}}" class="cart-count-down">-</text>
                     <text class="cart-count-num">{{item.num}}</text>
-                    <text class="cart-count-add">+</text>
+                    <text bindtap="addCount" data-index="{{index}}" class="cart-count-add">+</text>
                 </view>
 
-                <text class="cart-del">x</text>
+                <text bindtap="deleteCart" data-index="{{index}}" class="cart-del">x</text>
             </view>
         </view>
 
         <view class="cart-footer">
-            <icon class="total-select" type="success" size="23" color="red"></icon>
+            <icon wx:if="{{isAllSelected}}" bindtap="changeSelectAll" class="total-select" type="success" size="23" color="red"></icon>
+            <icon wx:else class="total-select" bindtap="changeSelectAll" type="success" size="23" color="gray"></icon>
             <text>全选</text>
             <text class="cart-total-price">￥ {{totalPrice}}</text>
         </view>
