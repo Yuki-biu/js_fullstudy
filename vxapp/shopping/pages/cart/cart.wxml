@@ -4,7 +4,7 @@
         <view class="cart-box">
             <view class="cart-list" wx:for="{{carts}}" wx:key="index">
                 <icon wx:if="{{item.selected}}" bindtap="changeSelect" data-index="{{index}}" class="cart-pro-select" type="success" size="23" color="red"></icon>
-                <icon wx:else class="cart-pro-select" bindtap="changeSelect" data-index="{{index}}" type="success" size="23" color="gray"></icon>
+                <icon wx:else class="cart-pro-select" bindtap="changeSelect" data-index="{{index}}" type="success" size="23" color="#d9d9d9"></icon>
                 
                 <navigator class="cart-pro-goods" url="pages/detail/detail">
                     <image class="cart-thumb" src="{{item.image}}" />

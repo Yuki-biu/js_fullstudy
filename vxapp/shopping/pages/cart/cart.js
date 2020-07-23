@@ -90,11 +90,13 @@ Page({
   // 单个选择
   changeSelect: function (e) {
     const index = e.currentTarget.dataset.index
+    // let selected = `carts[${index}].selected` //字符串拼接
     let carts = this.data.carts
     const selected = carts[index].selected
     carts[index].selected = !selected //改变selected
     this.setData({
       carts: carts
+      // [selected]: !this.carts[index].selected
     })
     this.selectAllCarts()
     this.sum()
