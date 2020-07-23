@@ -25,7 +25,7 @@
 
         <view class="cart-footer">
             <icon wx:if="{{isAllSelected}}" bindtap="changeSelectAll" class="total-select" type="success" size="23" color="red"></icon>
-            <icon wx:else class="total-select" bindtap="changeSelectAll" type="success" size="23" color="gray"></icon>
+            <icon wx:else class="total-select" bindtap="changeSelectAll" type="success" size="23" color="white"></icon>
             <text>全选</text>
             <text class="cart-total-price">￥ {{totalPrice}}</text>
         </view>

@@ -28,9 +28,8 @@ Page({
   // 判断是否全选
   selectAllCarts: function() {
     let carts = this.data.carts
-    let selected = true
     for( let i = 0; i < carts.length; i++){
-      if(carts[i] != selected){
+      if(!carts[i].selected){
         this.setData({
           isAllSelected: false
         })
@@ -97,8 +96,8 @@ Page({
     this.setData({
       carts: carts
     })
-    this.sum()
     this.selectAllCarts()
+    this.sum()
   },
 
   // 全选
