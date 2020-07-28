@@ -38,3 +38,38 @@ ul li {
 .item-con img {
     width: 100%;
 }
+.header {
+    background-color: #ffffff;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    font-weight: 600;
+}
+.user-wallet, .user-history {
+    margin-top: 15px;
+    background-color: #ffffff;
+}
+.user-wallet .weui-cell__bd,
+.user-history .weui-cell__bd {
+    position: relative;
+    padding: 5px;
+    box-sizing: border-box;
+    height: 30px;
+    text-align: left;
+    justify-items: center;
+    align-items: center;
+}
+.user-wallet .weui-cell__bd img,
+.user-history .weui-cell__bd img {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 30px;
+    height: 30px;
+}
+.user-wallet .weui-cell__bd span,
+.user-history .weui-cell__bd span {
+    margin-left: 40px;
+    line-height: 30px;
+    font-size: 14px;
+}
