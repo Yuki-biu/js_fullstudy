@@ -1,0 +1,13 @@
+<!--index.wxml-->
+<!-- <scorll-view>
+  <swiper>
+    <swiper-item wx:for="">
+      <image />
+    </swiper-item>
+  </swiper>
+  <view>
+    <view wx:for="">
+
+    </view>
+  </view>
+</scorll-view> -->
