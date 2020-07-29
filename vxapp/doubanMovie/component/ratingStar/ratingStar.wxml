@@ -1,2 +1,7 @@
 <!--component/ratingStar/ratingStar.wxml-->
-<text>component/ratingStar/ratingStar.wxml</text>
+<view class="container">
+    <view class="star" wx:for="{{starSrc}}" wx:key="index">
+        <image src="{{item}}" wx:key="index" />
+    </view>
+    
+</view>

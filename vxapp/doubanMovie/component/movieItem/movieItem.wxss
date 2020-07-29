@@ -20,3 +20,10 @@
     margin-bottom: 20rpx;
     border-radius: 10rpx;
 }
+.score-wrapper ratingStar {
+    display: inline-block;
+}
+.score {
+    display: inline-block;
+    font-size: 24rpx;
+}

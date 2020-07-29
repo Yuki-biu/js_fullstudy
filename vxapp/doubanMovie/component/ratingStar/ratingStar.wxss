@@ -1,1 +1,15 @@
 /* component/ratingStar/ratingStar.wxss */
+.container {
+    display: inline-block;
+    height: 25rpx;
+    width: 150rpx;
+}
+.container .star {
+    height: 25rpx;
+    width: 25rpx;
+}
+
+.container .star image {
+    width: 100%;
+    height: 100%;
+}
