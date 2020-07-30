@@ -5,7 +5,33 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    allMovies: [
+      {
+        title: '影院热映',
+        url: '/v2/movie/in_theaters',
+        movie: []
+      },
+      {
+        title: "新片榜",
+        url: "/v2/movie/new_movies",
+        movies: []
+      },
+      {
+        title: "口碑榜",
+        url: "/v2/movie/weekly",
+        movies: []
+      },
+      {
+        title: "北美票房榜",
+        url: "/v2/movie/us_box",
+        movies: []
+      },
+      {
+        title: "Top250",
+        url: "/v2/movie/top250",
+        movies: []
+      }
+    ]
   },
 
   /**
@@ -14,19 +40,43 @@ Page({
   onLoad: function (options) {
     this.getCity((city) => {
       console.log(city)
-      this.loadData(0, {city: city, apikey: '0df993c66c0c636e29ecbb5344252a4a'})
+      for (let i = 0; i < this.data.allMovies.length; i ++){
+        this.loadData(i, {city: city, apikey: '0df993c66c0c636e29ecbb5344252a4a'})
+      }
+      // this.loadData(0, {city: city, apikey: '0df993c66c0c636e29ecbb5344252a4a'})
     })
 
   },
 
   loadData(idx, params) {
-    let url = wx.db.url('/v2/movie/in_theaters')
+    console.log(params)
+    let obj = this.data.allMovies[idx]
+    let url = wx.db.url(obj.url)
     wx.request({
       url: url,
       data: params,
       header: {'content-type': 'json'},
-      success: (res) => {console.log(res)}
+      success: (res) => {
+        console.log(res)
+        let movies = res.data.subjects
+        obj.movies = []
+        for (let index = 0; index < movies.length; index ++) {
+          let element = movies[index]
+          let movie = element.subject || element
+          // 星星
+          this.updateMovie(movie)
+          obj.movies.push(movie)
+        }
+        this.setData(this.data)
+      }
     })
+  },
+
+  updateMovie(movie) {
+    if(!movie.rating.stars) {
+      return
+    }
+    movie.numberStars = parseInt(movie.rating.stars)
   },
 
   getCity(succeed) {
@@ -34,7 +84,7 @@ Page({
     // 先拿到当前所在区域的经纬度（小程序自带api）
     wx.getLocation({
       success: (res)=>{
-        console.log(res)
+        // console.log(res)
         // 将经纬度转换成具体的城市名称
         wx.request({
           url: 'https://api.map.baidu.com/reverse_geocoding/v3',
@@ -45,7 +95,7 @@ Page({
             location: `${res.latitude},${res.longitude}`
           },
           success: (res) => {
-            console.log(res)
+            // console.log(res)
             let city = res.data.result.addressComponent.city
             succeed && succeed(city)
           },

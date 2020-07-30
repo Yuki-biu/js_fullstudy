@@ -1,12 +1,12 @@
 <!--component/movieItem/movieItem.wxml-->
 <view class="item">
     <view class="info">
-        <image class="img" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1595937450405&di=1f90c260ffeb5ecc47d8804304b1f3a6&imgtype=0&src=http%3A%2F%2Fattach.bbs.miui.com%2Fforum%2F201705%2F24%2F161406sh9669g936k3o8gk.png"></image>
-        <view class="name">是蕾姆</view>
+        <image class="img" src="{{movie.images.large}}"></image>
+        <view class="name">{{movie.title}}</view>
         <view class="score-wrapper">
             <!-- 评分星星组件 -->
-            <ratingStar score="4.5"></ratingStar>
-            <view class="score">9.0</view>
+            <ratingStar score="{{movie.numberStars}}"></ratingStar>
+            <view class="score">{{movie.rating.average}}</view>
         </view>
     </view>
 </view>
