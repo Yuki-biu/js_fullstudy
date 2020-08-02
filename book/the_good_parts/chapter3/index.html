@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter3</title>
+</head>
+
+<body>
+    <script>
+        var empty_object = {}; //创建空对象
+        var stooge = {
+            "first-name": "Joe",
+            "last-name": "Howard"
+        }
+        //嵌套对象的创建
+        var flight = {
+            airline: "Oceanic",
+            number: 815,
+            departure: {
+                IATA: "SYD",
+                time: "2004-09-22 14:55",
+                city: "Sydney"
+            },
+            arrival: {
+                IATA: "LAX",
+                time: "2004-09-23 10:42",
+                city: "Los Angeles"
+            }
+        }
+        //检索
+        console.log(stooge["first-name"])  //"Joe"
+        console.log(flight.departure.IATA)   //"STD"
+        //检索不存在的属性名的值
+        console.log(stooge["middle-name"])   //undefined
+        console.log(flight.status)   //undefined
+        
+    </script>
+</body>
+
+</html>
