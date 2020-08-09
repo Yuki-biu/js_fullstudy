@@ -1,0 +1,28 @@
+<!--components/calendar/calendar.wxml-->
+<div class="calendar">
+    <!-- 显示当前年月日 -->
+    <div class="calendar-title">
+        <div class="item ctrl">{{lastMonth}}</div>
+        <div class="item title">{{title}}</div>
+        <div class="item ctrl">{{nextMonth}}</div>
+        <div class="item ctrl today">今天</div>
+    </div>
+    <!-- 遍历星期 -->
+    <view class="calendar-week">
+        <view class="item" wx:for="{{weekText}}" wx:key="index">{{item}}</view>
+    </view>
+    <!-- 日期 -->
+    <view class="calendar-container">
+        <!-- 上个月的格子 -->
+        <view class="grid gray" wx:for="{{emptyGridBefore}}" wx:key="index">{{item}}</view>
+        <!-- 当月格子 -->
+        <view class="grid" wx:for="{{thisMonthDays}}" wx:key="index">
+            <view class="self"></view>
+            <view class="wrap {{format === year + '-' + item.monthFormat + '-' + item.dateFormat ? 'select' : ''}} ">
+                {{item.date}}
+            </view>
+        </view>
+        <!-- 下个月的格子 -->
+        <view class="grid gray" wx:for="{{emptyGridAfter}}" wx:key="index">{{item}}</view>
+    </view>
+</div>
