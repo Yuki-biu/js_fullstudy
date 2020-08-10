@@ -111,14 +111,14 @@
 // console.log(bar)
 
 
-function foo() {
-    console.log(this.a)
-}
-var obj = {
-    a: 2,
-    foo: foo
-}
-var a = "global"
-var bar = obj.foo()
-console.log(bar)
+// function foo() {
+//     console.log(this.a)
+// }
+// var obj = {
+//     a: 2,
+//     foo: foo
+// }
+// var a = "global"
+// var bar = obj.foo()
+// console.log(bar)
 
