@@ -9,6 +9,17 @@ function test() {
 // test() ---> AO: {}  // 回收
 // test() ---> AO: {}  // 回收
 
+function a() {
 
+    function b() {
+
+        function c() {
+
+        }
+        c()
+    }
+    b()
+}
+a()
 
 
