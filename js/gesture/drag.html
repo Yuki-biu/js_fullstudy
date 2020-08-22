@@ -1,0 +1,64 @@
+<style>
+    .box {
+        width: 80vw;
+        height: 40vh;
+        background-color: red;
+    }
+</style>
+<div class="box"></div>
+<script>
+    // tap 点击
+    // 移动端的click有一定的延迟
+    // fastClick
+    const box = document.querySelector('.box')
+    box.addEventListener('click', () => {
+        console.log('click')
+    })
+    box.addEventListener('touchstart', () => {
+        console.log('touchstart')
+    })
+    box.addEventListener('mousedown', (e) => {
+        let time = setTimeout(() => {
+            console.log('Holding')
+        },1000)
+        let startX = e.clientX, startY = e.clientY
+        
+        function handleMove(event) {    // 改变box坐标
+            let endX = event.clientX, endY = event.clientY
+            let diffX = endX - startX, diffY = endY - startY
+            // 移动10px
+            if (diffX ** 2 + diffY ** 2 > 2500) {
+                // console.log('drag')
+                if (Math.abs(diffX) > Math.abs(diffY)) {
+                    // console.log("l or r ?")
+                    if (diffX > 0) {
+                        console.log("right")
+                    } else {
+                        console.log("left")
+                    }
+                } else {
+                    if (diffY > 0) {
+                        console.log("down")
+                    } else {
+                        console.log("up")
+                    }
+                }
+
+            }
+
+            // console.log(event)
+            // box.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0)`
+        }
+
+        function handleUp() {   // 鼠标松开时remove方法
+            clearTimeout(time)
+            document.removeEventListener('mousemove', handleMove)
+            document.removeEventListener('mouseup', handleUp)
+        }
+
+        document.addEventListener('mousemove', handleMove)
+        document.addEventListener('mouseup', handleUp)
+    })
+    
+    
+</script>
