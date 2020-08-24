@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.12/vue.common.dev.js"></script>
     <title>Document</title>
+    <style>
+        .red {
+            color: red;
+        }
+
+        [v-cloak] {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
@@ -30,11 +39,37 @@
             <span v-html="newMessage"></span><br/>  
         </div> -->
 
-        <div class="count">
+        <!-- <div class="count">
             <p>{{count}}</p>
             <button v-on:click="add">+</button>
             <button @click="reduce">-</button>
-        </div>
+        </div> -->
+
+        <!-- 双向数据绑定 -->
+        <!-- <div class="model">
+            <p>{{message}}</p>
+            <p>
+                v-model:
+                <input type="text" v-model="message" />
+            </p>
+        </div> -->
+
+        <!-- v-bind:  缩写=> :  -->
+        <!-- <div class="pic">
+            <img :src="imgSrc" alt="">
+        </div> -->
+
+        <!-- <div @click="changeColor" v-bind:class="{red: isRed}" :class="[className1, className2]">
+            红色还是黑色？
+        </div> -->
+
+        <!-- <div v-pre>{{message}}</div> -->
+
+        <!-- <div v-cloak>{{message}}</div> -->
+
+        <!-- 渲染一次后视为静态资源 -->
+        <!-- <div v-once>{{message}}</div>
+        <input type="text" v-model="message" /> -->
         
     </div>
 
@@ -42,9 +77,13 @@
         var app = new Vue({
             el: '#app',
             data: {
+                className1: 'active',
+                className2: 'wrapper',
                 message: 'Hello world!',
                 newMessage: '<h2>Hello Vue!</h2>',
+                imgSrc: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1598262404356&di=717b72f6a71311fd7b0b85b6580b77a5&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201901%2F06%2F20190106093933_wqaqw.jpg',
                 isSure: true,
+                isRed: false,
                 list: ['a', 'b', 'c'],
                 people: [
                     {name: 'a', age: 18},
@@ -60,6 +99,9 @@
                 reduce() {
                     // console.log('reduce')
                     this.count--
+                },
+                changeColor() {
+                    this.isRed = !this.isRed
                 }
             },
             beforeCreate() {
