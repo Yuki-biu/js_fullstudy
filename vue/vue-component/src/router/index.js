@@ -22,6 +22,21 @@ Vue.use(VueRouter)
     path: '/main',
     name: 'Main',
     component: () => import('../views/Main.vue')
+  },
+  {
+    path: '/detail',
+    name: 'Detail',
+    component: () => import('../views/Detail.vue')
+  },
+  {
+    path: '/methods',
+    name: 'Methods',
+    component: () => import('../views/Methods.vue')
+  },
+  {
+    path: '/watch',
+    name: 'Watch',
+    component: () => import('../views/Watch.vue')
   }
 ]
 
