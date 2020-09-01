@@ -7,7 +7,9 @@
         <div class="user-control">
           <el-dropdown @command="out">
             <span class="el-dropdown-link">
-              admin
+              {{$route.query.name}}
+              <!-- params传参不能缓存 -->
+              <!-- {{$route.params.name}} -->
               <i class="el-icon-arrow-down el-icon--right"></i>
             </span>
             <el-dropdown-menu slot="dropdown">

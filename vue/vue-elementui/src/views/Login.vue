@@ -30,7 +30,9 @@ export default {
                     message: '登录成功！',
                     type: 'success'
                 });
-                this.$router.push({path: '/home'})
+                localStorage.setItem()
+                this.$router.push({path: '/home', query: {name: this.user}})
+                // this.$router.push({name: 'Home', params: {name: this.user}})
             } else if (!this.user || !this.password) {
                 this.$message({
                     message: '账号或密码不能为空！',
