@@ -2,61 +2,69 @@
   <div class="goods">
     <div class="scroll-nav-wrapper">
       <!-- 左右联动的菜单 -->
-      <cube-scroll-nav :side="true" :data="goods" :options="scrollOptions" @change="changeHandler">
+      <cube-scroll-nav :side="true" :data="goods" :options="scrollOptions" v-if="goods.length">
         <!-- 左侧菜单 -->
         <template slot="bar" slot-scope="props">
           <cube-scroll-nav-bar
             direction="vertical"
             :current="props.current"
             :labels="props.labels"
-            :txts="barTxts">
+            :txts="barTxts"
+          >
             <!-- 菜单里面的内容 -->
             <template slot-scope="props">
               <div class="text">
-                <support-ico v-if="props.txt.type>-1" :size=3 :type="props.txt.type"></support-ico>
+                <support-ico v-if="props.txt.type>-1" :size="3" :type="props.txt.type"></support-ico>
                 <span>{{props.txt.name}}</span>
               </div>
             </template>
           </cube-scroll-nav-bar>
         </template>
-
         <cube-scroll-nav-panel
           v-for="good in goods"
           :key="good.name"
           :label="good.name"
-          :title="good.name">
+          :title="good.name"
+        >
           <ul>
-            <li class="food-item" v-for="(food, index) in good.foods" :key="index">
+            <li class="food-item" v-for="food in good.foods" :key="food.name">
               <div class="icon">
-                <img width="57" height="57" :src="food.icon" />
+                <img width="57" height="57" :src="food.icon" alt="">
               </div>
               <div class="content">
-                  <h2 class="name">{{food.name}}</h2>
-                  <p class="desc">{{food.description}}</p>
-                  <div class="extra">
-                      <span class="count">月售{{food.sellCount}}份</span>
-                      <span>好评率{{food.rating}}%</span>
-                  </div>
-                  <div class="price">
-                      <span class="now">￥{{food.price}}</span>
-                      <span class="old" v-if="food.oldPrice">￥{{food.oldPrice}}</span>
-                  </div>
-                  <div class="cart-control-wrapper">
-                      <cart-control :food="food"></cart-control>
-                  </div>
+                <h2 class="name">{{food.name}}</h2>
+                <p class="desc">{{food.description}}</p>
+                <div class="extra">
+                  <span class="count">月售{{food.sellCount}}份</span>
+                  <span>好评率{{food.rating}}%</span>
+                </div>
+                <div class="price">
+                  <span class="now">¥{{food.price}}</span>
+                  <span class="old" v-if="food.oldPrice">¥{{food.oldPrice}}</span>
+                </div>
+                <div class="cart-control-wrapper">
+                  <cart-control :food="food" @add="onAdd"></cart-control>
+                </div>
               </div>
             </li>
           </ul>
         </cube-scroll-nav-panel>
       </cube-scroll-nav>
     </div>
+    <div class="shop-cart-wrapper">
+      <shop-cart 
+        :select-foods="selectFoods" 
+        :delivery-price="data.deliveryPrice">
+      </shop-cart>
+    </div>
   </div>
 </template>
 
 <script>
 import SupportIco from '@/components/support-ico/support-ico';
-import { getGoods } from '@/api';
+import { getGoods } from '@/api'
 import CartControl from '@/components/cart-control/cart-control'
+import ShopCart from '@/components/shop-cart/shop-cart'
 
 export default {
   props: {
@@ -68,58 +76,73 @@ export default {
     }
   },
   data() {
-      return {
-          goods: [],
-          scrollOptions: {
-            click: false,
-            directionLockThreshold: 0
-          }
+    return {
+      goods: [],
+      scrollOptions: {
+        click: true,
+        directionLockThreshold: 0
       }
+    }
   },
   created() {
     this._getGoods()
   },
-  methods: {
-      _getGoods() {
-          getGoods({
-              id: this.data.id
-          }).then((goods) => {
-              console.log(goods)
-              this.goods = goods
-          })
-      },
-      changeHandler(label) {
-        console.log('changed to:', label)
-      },
-      stickyChangeHandler(current) {
-        console.log('sticky-change', current)
-      }
-  },
   computed: {
-    //   需要计算出一个菜单的集合
+    // 需要一个菜单的集合--数组
     barTxts() {
-        let ret = []
-        // 循环数据源 拿到每一条数据中的name 重新放进ret
-        this.goods.forEach(good => {
-            const {type, name, foods} = good
-            ret.push({
-                type,
-                name
-            })
-        });
-        return ret
+      let ret = []
+      // 循环数据源拿到里面的每一条数据的name重新放进ret
+      this.goods.forEach((good) => {
+        const {type, name, foods} = good
+        ret.push({
+          type,
+          name
+        })
+      })
+      return ret
+    },
+    selectFoods() {
+      let foods = []
+      this.goods.forEach((good) => {
+        good.foods.forEach((food) => {
+          if (food.count) {
+            foods.push(food)
+          }
+        })
+      })
+      return foods
+    }
+  },
+  methods: {
+    onAdd(target) {
+      // 小球下落
+    },
+    _getGoods() {
+      getGoods({
+        id: this.data.id
+      }).then((goods) => {
+        console.log(goods)
+        this.goods = goods
+      })
+    },
+    changeHandler(label) {
+      console.log('changed to:', label)
+    },
+    stickyChangeHandler(current) {
+      console.log('sticky-change', current)
     }
   },
   components: {
     SupportIco,
-    CartControl
+    CartControl,
+    ShopCart
   }
 };
 </script>
 
-<style lang='stylus' scoped>
-@import '../../common/stylus/variable.styl'
-.goods
+<style lang="stylus" scoped>
+  @import '../../common/stylus/variable.styl';
+  .goods
     position: relative
     text-align: left
     height: 100%
