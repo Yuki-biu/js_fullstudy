@@ -8,6 +8,8 @@ export function get(url) {
       params,
     }).then((res) => {
       const { errno, data } = res.data;
+      // const errno = res.data.errno
+      // const data = res.data.data
       if (errno === 0) {
         return data;
       }

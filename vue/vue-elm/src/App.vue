@@ -1,5 +1,6 @@
 <template>
-  <div id="app">
+  <div id="app" @touchmove.prevent>
+    <!-- header 组件 -->
     <v-header :seller="seller"></v-header>
     <div class="tab">
       <div class="tab-wrapper">
@@ -13,7 +14,7 @@
       </div>
     </div>
     <div class="page">
-      <router-view :data="seller" />
+      <router-view :data="seller"/>
     </div>
   </div>
 </template>
@@ -21,7 +22,7 @@
 <script>
 import VHeader from '@/components/v-header/v-header.vue';
 import { getSeller } from '@/api';
-import qs from 'query-string';
+import qs from 'query-string'
 
 export default {
   data() {
@@ -39,8 +40,8 @@ export default {
       getSeller({
         id: this.seller.id,
       }).then((seller) => {
-        this.seller = Object.assign({}, this.seller, seller);
-        // console.log(this.seller);
+        this.seller = Object.assign({}, this.seller, seller)
+        console.log(this.seller);
       });
     },
   },
@@ -48,10 +49,10 @@ export default {
     VHeader,
   },
 };
-</script>
+</script>>
 
 <style lang="stylus" scoped>
-@import './common/stylus/variable.styl';
+  @import './common/stylus/variable.styl';
   .page
     position fixed
     top 174px
@@ -73,6 +74,4 @@ export default {
       .router-link-exact-active
         color $color-red
         border-bottom 2px solid $color-red
-        box-sizing border-box
-        
 </style>
