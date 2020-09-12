@@ -3,28 +3,87 @@
     <div class="search-box-wrapper">
       <v-search-box @query="onQueryChange"></v-search-box>
     </div>
-    <div class="shortcut-wrapper" ref="shortcutWrapper">
-      <v-scroll>
+
+    <div class="shortcut-wrapper" ref="shortcutWrapper" v-show="!query">
+      <v-scroll class="shortcut" ref="shortcut">
         <div>
-          123456654321
+          <!-- 热门搜索 -->
+          <div class="hot-key">
+            <h1 class="title">热门搜索</h1>
+            <ul>
+              <li class="item" v-for="(item, index) in hotKey" :key="index">
+                <span>{{item.first}}</span>
+              </li>
+            </ul>
+          </div>
+          <!-- 搜索历史 -->
+          <div class="search-history" v-show="searchHistory.length">
+            <h1 class="title">
+              <span class="text">搜索历史</span>
+              <span class="clear" @click="clearSearchHistory">
+                <i class="iconfont">&#xe62b;</i>
+              </span>
+            </h1>
+            <!-- 历史列表 -->
+            <v-searchList :searches="searchHistory" @delete="deleteSearchHistory"></v-searchList>
+          </div>
         </div>
       </v-scroll>
+    </div>
+
+    <!-- 搜索结果列表 -->
+    <div class="search-result" ref="searchResult" v-show="query">
+      <v-search-result :query="query"></v-search-result>
     </div>
   </div>
 </template>
 
 <script>
 import searchBox from '@/components/searchBox'
+import searchResult from '@/components/searchResult'
 import scroll from '@/components/scroll'
+import searchList from '@/components/searchList'
 import { searchMixin } from '@/common/js/mixin'
+import api from '@/api'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   components: {
     'v-search-box': searchBox,
-    'v-scroll': scroll
+    'v-scroll': scroll,
+    'v-searchList': searchList,
+    'v-search-result': searchResult
   },
   mixins: [searchMixin],
-  methods: {}
+  data() {
+    return {
+      hotKey: []
+    }
+  },
+  methods: {
+    _getHotKey () { // 获取热搜
+      api.HotSearchKey().then((res) => {
+        // console.log(res)
+        this.hotKey = res.result.hots.slice(0,10)
+      })
+    },
+    ...mapActions(['deleteSearchHistory', 'clearSearchHistory'])
+  },
+  created() {
+    this._getHotKey()
+  },
+  computed: {
+    ...mapGetters(['searchHistory'])
+  },
+  watch: {
+    query(newQuery) {
+      if(newQuery) {
+        setTimeout(() => {
+          this.$refs.shortcut.refresh()
+        }, 20)
+      }
+    }
+  }
 }
 </script>
 

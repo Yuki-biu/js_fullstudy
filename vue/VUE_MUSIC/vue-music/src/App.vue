@@ -34,12 +34,12 @@ export default {
 <style lang="stylus">
 @font-face {
   font-family: 'iconfont';  /* project id 2053868 */
-  src: url('//at.alicdn.com/t/font_2053868_hipx2nfvfja.eot');
-  src: url('//at.alicdn.com/t/font_2053868_hipx2nfvfja.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_2053868_hipx2nfvfja.woff2') format('woff2'),
-  url('//at.alicdn.com/t/font_2053868_hipx2nfvfja.woff') format('woff'),
-  url('//at.alicdn.com/t/font_2053868_hipx2nfvfja.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_2053868_hipx2nfvfja.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_2053868_9hi2bvmx80e.eot');
+  src: url('//at.alicdn.com/t/font_2053868_9hi2bvmx80e.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_2053868_9hi2bvmx80e.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_2053868_9hi2bvmx80e.woff') format('woff'),
+  url('//at.alicdn.com/t/font_2053868_9hi2bvmx80e.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_2053868_9hi2bvmx80e.svg#iconfont') format('svg');
 }
 .iconfont{
   font-family:"iconfont" !important;
