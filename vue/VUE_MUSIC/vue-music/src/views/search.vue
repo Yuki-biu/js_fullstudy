@@ -33,7 +33,7 @@
 
     <!-- 搜索结果列表 -->
     <div class="search-result" ref="searchResult" v-show="query">
-      <v-search-result :query="query"></v-search-result>
+      <v-search-result :query="query" @select="saveSearch"></v-search-result>
     </div>
   </div>
 </template>
@@ -67,7 +67,13 @@ export default {
         this.hotKey = res.result.hots.slice(0,10)
       })
     },
-    ...mapActions(['deleteSearchHistory', 'clearSearchHistory'])
+    ...mapActions(['deleteSearchHistory', 'clearSearchHistory', 'saveSearchHistory', 'selectPlaySong']),
+    saveSearch(song) {
+      // 保存历史记录
+      this.saveSearchHistory(this.query)
+      // 播放音乐
+      this.selectPlaySong(song)
+    }
   },
   created() {
     this._getHotKey()
