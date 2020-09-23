@@ -1,12 +1,38 @@
 <template>
   <div class="player">
-      play
+    <audio 
+      ref="audio"
+      
+    ></audio>
   </div>
 </template>
 
 <script>
-export default {
+import { mapGetters } from 'vuex'
+import api from '@/api'
 
+export default {
+  computed: {
+    ...mapGetters(['currentSong'])
+  },
+  watch: {
+    async currentSong(newSong, oldSong) {
+      if (!newSong.id || newSong.id === oldSong.id) {
+        return
+      }
+      if (!newSong.url) {
+        const { data, code } = await api.MusicUrl(newSong.id)
+        if (data && code == 200) {
+          newSong = {...newSong, url: data[0].url}
+        } else {
+          alert('请求音乐出错')
+        }
+      }
+
+      this.$refs.audio.src = newSong.url
+      this.$refs.audio.play()
+    }
+  }
 }
 </script>
 
