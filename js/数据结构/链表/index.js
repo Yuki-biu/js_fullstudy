@@ -68,4 +68,22 @@ class LinkList {
 
 
 // leetcode 剑指offer 18.
+var deleteNode = function(head, val) {
+    let headNode = new ListNode()
+    headNode.next = head
+    let previous = headNode
+    let current = head
+
+    while (current) {
+        if(current.val === val) {
+            let temp = current.next
+            previous.next = temp
+            current.next = null
+            break;
+        }
+        previous = current
+        current = current.next
+    }
+    return headNode.next
+}
 
