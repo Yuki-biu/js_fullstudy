@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div id="title">title</div>
+    </div>
+
+    <!-- <script>
+        let node = document.getElementById('app')
+        node.addEventListener(
+            'click', 
+            (event) => {
+                console.log('false')
+            },
+            false    // 默认为false冒泡
+        )
+        node.addEventListener(
+            'click', 
+            (event) => {
+                console.log('true')
+            },
+            true    // true为捕获
+        )
+    </script> -->
+
+    <script>
+        // 用stopPropagation阻止冒泡和捕获事件
+        let app = document.getElementById('app')
+        let title = document.getElementById('title')
+        app.addEventListener(
+            'click',
+            (event) => {
+                console.log('app')
+            },
+            false
+        )
+        title.addEventListener(
+            'click',
+            (event) => {
+                console.log('title')
+                event.stopPropagation()
+            },
+            false
+        )
+
+        // stopImmediatePropagation 还能阻止自己注册的其他事件
+    </script>
+    
+</body>
+</html>
