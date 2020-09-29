@@ -1,8 +1,13 @@
 <template>
   <div class="star-banner">
-    <van-swipe class="my-swipe" loop="false">
-      <van-swipe-item>1</van-swipe-item>
+    <van-swipe class="my-swipe" :loop=false @change="onChange">
+      <van-swipe-item v-for="(item, index) in bannerList" :key="index">
+        <div class="banner-img" :style="`background-image:url(${item.img})`"></div>
+        <div class="title">{{item.title}}</div>
+        <div class="desc">{{item.content}}</div>
+      </van-swipe-item>
     </van-swipe>
+    <div class="jump-over" @click="starLogin">跳过</div>
   </div>
 </template>
 
@@ -14,32 +19,47 @@ export default {
       current: 0,
       bannerList: [
         {
-          img: require("@/assets/img/raw_1512446076.jpeg"),
+          img: require("../assets/img/raw_1512446076.jpeg"),
           title: "半亩方田",
           content: "足以记录最美好的时光",
         },
         {
-          img: require("@/assets/img/raw_1512446089.jpeg"),
+          img: require("../assets/img/raw_1512446089.jpeg"),
           title: "一指流沙",
           content: "足以消散所有的烦恼",
         },
         {
-          img: require("@/assets/img/raw_1512446063.jpeg"),
+          img: require("../assets/img/raw_1512446063.jpeg"),
           title: "一支画笔",
           content: "足以描绘最好的自己",
         },
         {
-          img: require("@/assets/img/raw_1512446113.jpeg"),
+          img: require("../assets/img/raw_1512446113.jpeg"),
           title: "一辆小车",
           content: "足以在全世界留下我们的足迹",
         }
       ]
+    }
+  },
+  methods: {
+    starLogin() {
+      this.$router.push({ path: '/StarLogin'})
+    },
+    onChange(index) {
+      // console.log(index)
+      if(index === 3) {
+        let t = setTimeout(() => {
+          this.starLogin()
+          clearTimeout(t)
+        }, 1000)
+      }
     }
   }
 }
 </script>
 
 <style lang="less" scoped>
+
 .comm-style{
     position: absolute;
     left: 0;

@@ -5,7 +5,7 @@ import store from './store'
 import 'amfe-flexible'
 
 import { Swipe, SwipeItem, Icon, Field, ActionSheet, Toast, Panel, Uploader } from 'vant';
-import 'vant/lib/button/style'
+import 'vant/lib/index.css'
 
 Vue.use(Swipe).use(SwipeItem).use(Icon).use(Field).use(ActionSheet).use(Toast).use(Panel).use(Uploader)
 
