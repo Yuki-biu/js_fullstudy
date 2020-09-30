@@ -100,6 +100,34 @@
     }
     // axios().then()
     // sleep(2000).then()
+
+    // GET POST
+    // http并没有规定 GET 参数一定放到url后 
+    // 也没有规定 POST 参数一定要放到请求体里
+
+    // 语义区别
+    // 安全: GET -> POST -> https
+
+    let xhr = new XMLHttpRequest()
+    xhr.open('POST', 'http://neteasecloudmusicapi.zhaoboy.com/login/cellphone', true)
+    xhr.onload = function(res) {
+        console.log(res)
+    }
+
+    // 请求体
+    let obj = {
+        phone: 17607080585,
+        password: 'aaa'
+    }
+    xhr.setRequestHeader('content-type', 'text/plain')
+    // content-type 请求头
+    // user-agent
+    // content-length 
+    // content-encoding: gzip
+    // 300  301永久重定向 302临时定向
+    // 400  401未授权
+    // 100  101交换协议
+    xhr.send(JSON.stringify(obj))
   </script>
 </body>
 
