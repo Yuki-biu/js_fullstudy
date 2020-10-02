@@ -35,7 +35,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions['setUserInfo'],
+    ...mapActions(['setUserInfo']),
     handleQuestion() {
 
     },
