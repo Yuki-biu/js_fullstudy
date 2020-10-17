@@ -1,9 +1,8 @@
 <template>
-  <a-form :model="form" :label-col="{ span: 4 }" :wrapper-col="{ span: 14}">
+  <a-form :model="form" :label-col="{ span: 4 }" :wrapper-col="{ span: 14 }">
     <a-form-item label="选择计划的日期">
       <a-date-picker
-        v-model:value="form.date1"
-        show-time
+        v-model:value="form.date"
         type="date"
         placeholder="选择计划的日期"
         style="width: 100%;"
@@ -15,8 +14,8 @@
     <a-form-item label="请输入待办事项">
       <a-textarea v-model:value="form.content" placeholder="请输入待办事项" :rows="4" />
     </a-form-item>
-    <a-form-item label="确认提交：">
-        <a-button type="primary" @click="onSubmit">创建任务</a-button>
+    <a-form-item label="确认提交">
+      <a-button type="primary" @click="onSubmit">创建任务</a-button>
     </a-form-item>
   </a-form>
 </template>
@@ -24,25 +23,23 @@
 import { reactive, toRefs } from 'vue'
 import moment from 'moment'
 export default {
-    setup() {
-        const state = reactive({
-            form: {
-                date: moment(Date.now(), 'YYYY-MM-DD'),
-                time: 0,
-                content: ''
-            }
-        })
+  setup(props, context) {
+    const state = reactive({
+      form: {
+        date: moment(Date.now()).format('YYYY-MM-DD'),
+        time: 0,
+        content: ''
+      }
+    })
 
-        const onSubmit = () => {
-            console.log(state.form)
-        }
-
-        return {
-            ...toRefs(state),
-            onSubmit
-        }
+    const onSubmit = () => {
+      context.emit('handlePlan', state.form)
     }
-}
+
+    return {
+      ...toRefs(state),
+      onSubmit
+    }
+  }
+};
 </script>
-<style>
-</style>
